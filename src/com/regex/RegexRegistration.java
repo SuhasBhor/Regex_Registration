@@ -7,6 +7,7 @@ public class RegexRegistration {
 	String userFirstName = "^[A-Z][a-zA-Z]{3,}";
 	String userLastName = "^[A-Z][a-zA-Z]{3,}";
 	String userEmail = "^[A-Za-z0-9_-]+([.][A-Za-z0-9_-]+)@[A-Za-z]+[A-Za-z]+([.][A-Za-z]+)$";
+	String userMobileNumber = "^[0-9]{2}[\\s][0-9]{10}";
 	
 	public void validateFirstName(String firstName) {
 		Pattern pattern = Pattern.compile(userFirstName);
@@ -25,4 +26,11 @@ public class RegexRegistration {
 		Matcher matcher = pattern.matcher(email);
 		System.out.println(matcher.matches());
 	}
+	
+	public void validateMobileNumber(String mobileNumber) {
+		Pattern pattern = Pattern.compile(userMobileNumber);
+		Matcher matcher = pattern.matcher(mobileNumber);
+		System.out.println(matcher.matches());
+	}
+	
 }
