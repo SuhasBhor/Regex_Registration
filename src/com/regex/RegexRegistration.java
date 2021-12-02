@@ -10,34 +10,39 @@ public class RegexRegistration {
 	String userMobileNumber = "^[0-9]{2}[\\s][0-9]{10}";
 	String userPassword = "^(?=.*[0-9])(?=.*[!@#$%&^*)_(+}{?>:<]){1}+(?=.*[A-Z])([0-9A-Za-z]).{8,}$";
 	
-	public void validateFirstName(String firstName) {
+	public boolean validateFirstName(String firstName) {
 		Pattern pattern = Pattern.compile(userFirstName);
 		Matcher matcher = pattern.matcher(firstName);
 		System.out.println(matcher.matches());
+		return true;
 	}
 	
-	public void validateLastName(String lastName) {
+	public boolean validateLastName(String lastName) {
 		Pattern pattern = Pattern.compile(userLastName);
 		Matcher matcher = pattern.matcher(lastName);
 		System.out.println(matcher.matches());
+		return true;
 	}
 	
-	public void validateEmail(String email) {
+	public boolean validateEmail(String email) {
 		Pattern pattern = Pattern.compile(userEmail);
 		Matcher matcher = pattern.matcher(email);
 		System.out.println(matcher.matches());
+		return true;
 	}
 	
-	public void validateMobileNumber(String mobileNumber) {
+	public boolean validateMobileNumber(String mobileNumber) {
 		Pattern pattern = Pattern.compile(userMobileNumber);
 		Matcher matcher = pattern.matcher(mobileNumber);
 		System.out.println(matcher.matches());
+		return true;
 	}
 	
-	public void validatePassword(String password) {
+	public boolean validatePassword(String password) {
 		Pattern pattern = Pattern.compile(userPassword);
 		Matcher matcher = pattern.matcher(password);
 		System.out.println(matcher.matches());
+		return true;
 	}
 	
 }
