@@ -7,10 +7,10 @@ public class TestClass {
 		RegexRegistration regex = new RegexRegistration();
 		Scanner scan = new Scanner(System.in);
 		
-		System.out.print("Enter Your Name: ");
-		String firstName = scan.nextLine();
+		System.out.print("Enter Your Last Name: ");
+		String lastName = scan.nextLine();
 		
-		regex.validateFirstName(firstName);
+		regex.validateFirstName(lastName);
 		
 	}
 }
