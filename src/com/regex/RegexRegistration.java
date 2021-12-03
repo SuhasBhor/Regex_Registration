@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 public class RegexRegistration {
 	String userFirstName = "^[A-Z][a-zA-Z]{3,}";
 	String userLastName = "^[A-Z][a-zA-Z]{3,}";
-	String userEmail = "^[A-Za-z0-9-]+(.[A-Za-z0-9-]+)*@[^_\\W]+(.[^_\\W]+)?(?=(.[^_\\W]{3,}$|.[a-zA-Z]{2}$)).*$";
+	String userEmail = "^[A-Za-z0-9]+(.[A-Za-z0-9]+)*@[^_\\W]+(.[^_\\W]+)?(?=(.[^_\\W]{3,}$|.[a-zA-Z]{2}$)).*$";
 	String userMobileNumber = "^[0-9]{2}[\\s][0-9]{10}";
 	String userPassword = "^(?=.*[0-9])(?=.*[!@#$%&^*)_(+}{?>:<]){1}+(?=.*[A-Z])([0-9A-Za-z]).{8,}$";
 	
