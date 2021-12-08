@@ -11,22 +11,15 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 import com.regex.RegexRegistration;
+import com.regex.RegexRegistrationException;
 
-@RunWith(Parameterized.class)
+
 public class TestClass {
-	
-	String input;
-	boolean expectedResult;
+
 	RegexRegistration validation;
 	
-	public TestClass(String input, boolean expectedResult) {
-		super();
-		this.input = input;
-		this.expectedResult = expectedResult;
-	}
-	
 	@Test
-	public void testFirstNameHappy() {
+	public void testFirstNameHappy() throws RegexRegistrationException {
 		validation = new RegexRegistration();
 		boolean output = validation.validateFirstName("Suhas");
 		assertEquals(true, output);
@@ -34,25 +27,35 @@ public class TestClass {
 	
 	@Test
 	public void testFirstNameSad() {
-		validation = new RegexRegistration();
-		boolean output = validation.validateFirstName("suhas");
-		assertEquals(false, output);
+		try {
+			validation = new RegexRegistration();
+			boolean output = validation.validateFirstName("suhas");
+			assertEquals(false, output);
+		} catch (RegexRegistrationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}	
 	
 	@Test
-	public void testLastNameHappy() {
+	public void testLastNameHappy() throws RegexRegistrationException {
 		validation = new RegexRegistration();
 		boolean output = validation.validateLastName("Bhor");
 		assertEquals(true, output);
 	}	
 	@Test
 	public void testLastNameSad() {
-		validation = new RegexRegistration();
-		boolean output = validation.validateLastName("bhor");
-		assertEquals(false, output);
+		try {
+			validation = new RegexRegistration();
+			boolean output = validation.validateLastName("bhor");
+			assertEquals(false, output);
+		} catch (RegexRegistrationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}	
 	
-	@Parameters(name="inputs()")
+	/*@Parameters(name="inputs()")
 	public static Collection inputs() {
 		return Arrays.asList(new Object[][] {
 			{"abc@yahoo.com" , true},
@@ -80,26 +83,31 @@ public class TestClass {
 			} );
 	}
 	@Test
-	public void testEmail() {
+	public void testEmail() throws RegexRegistrationException {
 		validation = new RegexRegistration();
 		boolean output = validation.validateEmail(input);
 		assertEquals(expectedResult , output);
-	}
-	/*@Test
-	public void testEmailHappy() {
+	}*/
+	@Test
+	public void testEmailHappy() throws RegexRegistrationException {
 		validation = new RegexRegistration();
 		boolean output = validation.validateEmail("abc.xyz@bl.co.in");
 		assertEquals(true, output);
 	}	
 	@Test
 	public void testEmailSad() {
-		validation = new RegexRegistration();
-		boolean output = validation.validateEmail("abc.xyz@bl.co");
-		assertEquals(false, output);
-	}	*/
+		try {
+			validation = new RegexRegistration();
+			boolean output = validation.validateEmail(".abc@abc.com");
+			assertEquals(false, output);
+		} catch (RegexRegistrationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	@Test
-	public void testMobileNumberHappy() {
+	public void testMobileNumberHappy() throws RegexRegistrationException {
 		validation = new RegexRegistration();
 		boolean output = validation.validateMobileNumber("91 1234567890");
 		assertEquals(true, output);
@@ -107,23 +115,33 @@ public class TestClass {
 	
 	@Test
 	public void testMobileNumberSad() {
-		RegexRegistration validation = new RegexRegistration();
-		boolean output = validation.validateMobileNumber("91 123456789");
-		assertEquals(false, output);
+		try {
+			validation = new RegexRegistration();
+			boolean output = validation.validateMobileNumber("91 123456789");
+			assertEquals(false, output);
+		} catch (RegexRegistrationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	@Test
-	public void testPasswordHappy() {
+	public void testPasswordHappy() throws RegexRegistrationException {
 		validation = new RegexRegistration();
 		boolean output = validation.validatePassword("Abcde@123");
 		assertEquals(true, output);
 	}
 	
 	@Test
-	public void testPasswordSad() {
-		validation = new RegexRegistration();
-		boolean output = validation.validatePassword("Abc@123");
-		assertEquals(false, output);
+	public void testPasswordSad(){
+		try {
+			validation = new RegexRegistration();
+			boolean output = validation.validatePassword("Abc@123");
+			assertEquals(false, output);
+		} catch (RegexRegistrationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 }
