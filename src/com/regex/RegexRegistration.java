@@ -15,50 +15,80 @@ public class RegexRegistration {
 	public boolean validateFirstName(String firstName) throws RegexRegistrationException {
 		Pattern pattern = Pattern.compile(userFirstName);
 		Matcher matcher = pattern.matcher(firstName);
-		if(matcher.matches()) {
-			return true;
-		}else {
-			throw new RegexRegistrationException("Enter Valid First Name ",ExpectedType.FIRSTNAME);
+		try {
+			if(matcher.matches()) {
+				return true;
+			}else {
+				throw new RegexRegistrationException("Enter Valid First Name ",ExpectedType.FIRSTNAME);
+			}
+		} catch (RegexRegistrationException e) {
+			System.out.println(e);
+			e.printStackTrace();
+			return false;
 		}
 	}
 	
 	public boolean validateLastName(String lastName) throws RegexRegistrationException {
 		Pattern pattern = Pattern.compile(userLastName);
 		Matcher matcher = pattern.matcher(lastName);
-		if(matcher.matches()) {
-			return true;
-		}else {
-			throw new RegexRegistrationException("Enter Valid Last Name ",ExpectedType.LASTNAME);
+		try {
+			if(matcher.matches()) {
+				return true;
+			}else {
+				throw new RegexRegistrationException("Enter Valid Last Name ",ExpectedType.LASTNAME);
+			}
+		} catch (RegexRegistrationException e) {
+			System.out.println(e);
+			e.printStackTrace();
+			return false;
 		}
 	}
 	
 	public boolean validateEmail(String email) throws RegexRegistrationException {
 		Pattern pattern = Pattern.compile(userEmail);
 		Matcher matcher = pattern.matcher(email);
-		if(matcher.matches()) {
-			return true;
-		}else {
-			throw new RegexRegistrationException("Enter Valid Email",ExpectedType.EMAIL);
+		try {
+			if(matcher.matches()) {
+				return true;
+			}else {
+				throw new RegexRegistrationException("Enter Valid Email",ExpectedType.EMAIL);
+			}
+		} catch (RegexRegistrationException e) {
+			System.out.println(e);
+			e.printStackTrace();
+			return false;
 		}
 	}
 	
 	public boolean validateMobileNumber(String mobileNumber) throws RegexRegistrationException {
 		Pattern pattern = Pattern.compile(userMobileNumber);
 		Matcher matcher = pattern.matcher(mobileNumber);
-		if(matcher.matches()) {
-			return true;
-		}else {
-			throw new RegexRegistrationException("Enter Valid MobileNumber",ExpectedType.MOBILENUMBER);
+		try {
+			if(matcher.matches()) {
+				return true;
+			}else {
+				throw new RegexRegistrationException("Enter Valid MobileNumber",ExpectedType.MOBILENUMBER);
+			}
+		} catch (RegexRegistrationException e) {
+			System.out.println(e);
+			e.printStackTrace();
+			return false;
 		}
 	}
 	
 	public boolean validatePassword(String password) throws RegexRegistrationException {
 		Pattern pattern = Pattern.compile(userPassword);
 		Matcher matcher = pattern.matcher(password);
-		if(matcher.matches()) {
-			return true;
-		}else {
-			throw new RegexRegistrationException("Enter Valid First Name ",ExpectedType.PASSWORD);
+		try {
+			if(matcher.matches()) {
+				return true;
+			}else {
+				throw new RegexRegistrationException("Enter Valid Password",ExpectedType.PASSWORD);
+			}
+		} catch (RegexRegistrationException e) {
+			System.out.println(e);
+			e.printStackTrace();
+			return false;
 		}
 	}
 	
